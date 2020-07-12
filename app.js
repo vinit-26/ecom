@@ -7,6 +7,7 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const app = express();
 
 const User = require('./models/user');
+const PATH = process.env.PATH || 3000;
 const MONGODB_URI = 'mongodb://localhost:27017/shop';
 
 const store = MongoDBStore({
@@ -61,6 +62,6 @@ mongoose
           user.save();
         }
       })
-    app.listen(3000, () => console.log('Listening on 3000'));
+    app.listen(PATH, () => console.log(`Listening on ${PATH}`));
   })
   .catch(err => console.log("Mongoose Error", err.message));
