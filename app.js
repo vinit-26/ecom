@@ -6,7 +6,6 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const app = express();
 
-const errorController = require('./controllers/errorController');
 const User = require('./models/user');
 const MONGODB_URI = 'mongodb://localhost:27017/shop';
 
@@ -21,6 +20,7 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
+const errorController = require('./controllers/errorController');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
