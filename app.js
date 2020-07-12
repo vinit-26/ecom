@@ -7,7 +7,7 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const app = express();
 
 const User = require('./models/user');
-const PATH = process.env.PATH || 3000;
+const PATH = process.env.PATH | 3000;
 const MONGODB_URI = 'mongodb://localhost:27017/shop';
 
 const store = MongoDBStore({
